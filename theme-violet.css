@@ -1,0 +1,396 @@
+/**
+ * ==============================================================================
+ * Author: Igor Oprządek (Upgraded to Ultra-Premium Edition - Fixed Left Spacing)
+ * Palette: "Ultraviolet Pulse" — Vivid Blue-Violet Edition
+ * Fonts: Space Grotesk (UI/body) + Museo Moderno (headings/logo)
+ * ==============================================================================
+ */
+
+:root {
+  --app-font: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  --heading-font: 'Museo Moderno', 'Space Grotesk', sans-serif !important;
+  --primary: 30 27 75 !important;
+  --bg: 238 240 255 !important;
+  --background: 238, 240, 255 !important;
+  --card: 255 255 255 !important;
+  --search: 255 255 255 !important;
+  --border: 199 191 255 !important;
+  --muted: 227 226 255 !important;
+  --muted-fg: 91 76 191 !important;
+  --muted-foreground: 91, 76, 191 !important;
+  --fg: 30 27 75 !important;
+  --foreground: 30, 27, 75 !important;
+  --btn-radius: 10px !important;
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1) !important;
+
+  /* Vivid blue-violet accent system */
+  --accent: 124 58 237 !important;
+  /* violet-600 */
+  --accent-2: 59 130 246 !important;
+  /* blue-500 */
+  --accent-grad: linear-gradient(135deg, rgb(99, 102, 241) 0%, rgb(139, 92, 246) 50%, rgb(59, 130, 246) 100%) !important;
+}
+
+.dark {
+  --bg: 12 10 28 !important;
+  --background: 12, 10, 28 !important;
+  --card: 22 18 46 !important;
+  --search: 26 21 54 !important;
+  --border: 67 56 132 !important;
+  --muted: 30 24 64 !important;
+  --muted-fg: 165 155 249 !important;
+  --muted-foreground: 165, 155, 249 !important;
+  --fg: 237 233 254 !important;
+  --foreground: 237, 233, 254 !important;
+  --primary: 237 233 254 !important;
+
+  --accent: 167 139 250 !important;
+  /* violet-400 */
+  --accent-2: 96 165 250 !important;
+  /* blue-400 */
+  --accent-grad: linear-gradient(135deg, rgb(129, 140, 248) 0%, rgb(167, 139, 250) 50%, rgb(96, 165, 250) 100%) !important;
+}
+
+::selection {
+  background: rgba(124, 58, 237, 0.25);
+  color: rgb(var(--fg));
+}
+
+html,
+body {
+  font-family: var(--app-font) !important;
+}
+
+body {
+  background: radial-gradient(circle at 15% 0%, rgba(139, 92, 246, 0.10), transparent 45%),
+    radial-gradient(circle at 85% 20%, rgba(59, 130, 246, 0.10), transparent 45%),
+    rgb(var(--bg)) !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.logo,
+.brand,
+.site-title,
+.app-title,
+.navbar-brand {
+  font-family: var(--heading-font) !important;
+  letter-spacing: -0.01em !important;
+}
+
+header,
+.search-header {
+  box-shadow: none !important;
+  border-bottom: 1px solid rgb(var(--border)) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  background: rgb(var(--bg) / 0.85) !important;
+  position: sticky !important;
+  top: 0;
+  z-index: 50;
+}
+
+.search-input,
+.search-header-input,
+.ssb-input {
+  border: 1px solid rgb(var(--border)) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 2px 4px rgba(76, 29, 149, 0.05), 0 1px 2px rgba(76, 29, 149, 0.06) !important;
+  transition: all 0.25s var(--ease-spring) !important;
+  background-color: rgb(var(--search)) !important;
+  color: rgb(var(--fg)) !important;
+  padding-left: 3rem !important;
+  /* Zwiększony lewy margines/padding dla ikony i tekstu */
+}
+
+.search-input:hover,
+.search-header-input:hover {
+  border-color: rgb(var(--accent)) !important;
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.12) !important;
+}
+
+.search-input:focus,
+.search-header-input:focus {
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.22), 0 4px 20px rgba(76, 29, 149, 0.12) !important;
+  border-color: rgb(var(--accent)) !important;
+  outline: none !important;
+}
+
+.dark .search-input:hover,
+.dark .search-header-input:hover {
+  border-color: rgb(var(--accent)) !important;
+  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.25) !important;
+}
+
+.dark .search-input:focus,
+.dark .search-header-input:focus {
+  box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.28), 0 4px 24px rgba(0, 0, 0, 0.5) !important;
+  border-color: rgb(var(--accent)) !important;
+}
+
+.search-btn {
+  background: transparent !important;
+  color: rgb(var(--accent)) !important;
+  box-shadow: none !important;
+  transition: color 0.2s ease !important;
+  margin-left: 0.5rem !important;
+  /* Odsuwa ikonę od lewej krawędzi kontenera */
+}
+
+.search-btn:hover {
+  color: rgb(var(--accent-2)) !important;
+  background: transparent !important;
+}
+
+/* .search-submit is absolutely positioned (round icon button) — only recolor
+   background/shadow, never touch position/transform or it breaks its layout. */
+.search-submit {
+  background: var(--accent-grad) !important;
+  background-color: rgb(var(--accent)) !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15) !important;
+}
+
+.search-submit:hover {
+  filter: brightness(1.08);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2) !important;
+}
+
+.action-btn {
+  background: rgb(var(--muted)) !important;
+  border: 1px solid rgb(var(--border)) !important;
+  color: rgb(var(--fg)) !important;
+  border-radius: 20px !important;
+  font-size: 0.8125rem !important;
+  font-weight: 500 !important;
+  transition: all 0.2s var(--ease-spring) !important;
+}
+
+.action-btn:hover {
+  box-shadow: 0 2px 10px rgba(124, 58, 237, 0.15) !important;
+  border-color: rgb(var(--accent)) !important;
+  background: rgb(var(--card)) !important;
+  color: rgb(var(--accent)) !important;
+  transform: translateY(-1px);
+}
+
+.dark .action-btn {
+  background-color: rgb(var(--muted)) !important;
+  border-color: rgb(var(--border)) !important;
+  color: rgb(var(--fg)) !important;
+}
+
+.dark .action-btn:hover {
+  border-color: rgb(var(--accent)) !important;
+  background-color: rgb(var(--card)) !important;
+  box-shadow: 0 4px 16px rgba(124, 58, 237, 0.35) !important;
+  color: rgb(var(--accent)) !important;
+}
+
+.nav-btn {
+  font-weight: 500 !important;
+  color: rgb(var(--muted-fg)) !important;
+  transition: color 0.2s ease !important;
+}
+
+.nav-btn:hover {
+  color: rgb(var(--accent)) !important;
+}
+
+.nav-btn.active {
+  color: rgb(var(--accent)) !important;
+  font-weight: 600 !important;
+}
+
+.nav-btn.active::after {
+  background: var(--accent-grad) !important;
+  height: 2px !important;
+  border-radius: 2px;
+}
+
+.time-btn {
+  border-radius: 20px !important;
+  font-weight: 500 !important;
+  border-color: rgb(var(--border)) !important;
+  color: rgb(var(--fg)) !important;
+  /* Don't override transition — the site's own ::before fill animation
+     depends on its specific cubic-bezier timing on color/border-color/transform. */
+}
+
+.time-btn:hover {
+  border-color: rgb(var(--accent)) !important;
+  color: rgb(var(--accent)) !important;
+}
+
+.time-btn::before {
+  background: var(--accent-grad) !important;
+  background-color: rgb(var(--accent)) !important;
+}
+
+html .time-btn.active,
+.time-btn.active {
+  color: #ffffff !important;
+  border-color: transparent !important;
+  font-weight: 700 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15) !important;
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.35) !important;
+}
+
+.result-breadcrumb {
+  align-items: center !important;
+  font-size: 0.8rem !important;
+  color: rgb(var(--muted-fg)) !important;
+  letter-spacing: -0.01em;
+}
+
+.result-favicon {
+  border-radius: 50% !important;
+  border: 1px solid rgb(var(--border)) !important;
+  padding: 2px !important;
+  width: 26px !important;
+  height: 26px !important;
+  box-sizing: border-box !important;
+  background: rgb(var(--card)) !important;
+  box-shadow: 0 1px 4px rgba(124, 58, 237, 0.10);
+}
+
+.result-title a {
+  color: rgb(var(--accent)) !important;
+  font-size: 1.05rem !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+  letter-spacing: -0.01em;
+  transition: opacity 0.15s ease, color 0.15s ease !important;
+}
+
+.result-title a:hover {
+  color: rgb(var(--accent-2)) !important;
+  opacity: 0.9;
+  text-decoration: underline !important;
+}
+
+.dark .result-title a {
+  color: rgb(var(--accent)) !important;
+}
+
+.dark .result-title a:hover {
+  color: rgb(var(--accent-2)) !important;
+}
+
+.result-desc {
+  color: rgb(var(--muted-fg)) !important;
+  opacity: 1 !important;
+  font-size: 0.875rem !important;
+  line-height: 1.6 !important;
+  font-weight: 400 !important;
+}
+
+#resultsMain.web-results-mcard .result-card,
+#resultsMain.web-results-magazine .result-card {
+  border: none !important;
+  border-bottom: 1px solid rgb(var(--border)) !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  padding: 1.25rem 0 !important;
+  transition: background-color 0.2s ease;
+}
+
+#resultsMain.web-results-mcard .result-card:hover,
+#resultsMain.web-results-magazine .result-card:hover {
+  background: rgba(124, 58, 237, 0.04) !important;
+}
+
+.related-chip {
+  background: rgb(var(--muted)) !important;
+  border: 1px solid rgb(var(--border)) !important;
+  border-radius: 20px !important;
+  color: rgb(var(--fg)) !important;
+  transition: all 0.2s var(--ease-spring) !important;
+}
+
+.related-chip:hover {
+  background: var(--accent-grad) !important;
+  background-color: rgb(var(--accent)) !important;
+  border-color: transparent !important;
+  color: #ffffff !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3) !important;
+}
+
+.ai-response-box-inner {
+  border: 1px solid rgb(var(--border)) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 10px 30px -10px rgba(124, 58, 237, 0.18) !important;
+  background: linear-gradient(180deg, rgba(139, 92, 246, 0.05), rgba(255, 255, 255, 0)), rgb(var(--card)) !important;
+  padding: 1.5rem !important;
+}
+
+.dark .ai-response-box-inner {
+  background: linear-gradient(180deg, rgba(139, 92, 246, 0.10), rgba(0, 0, 0, 0)), rgb(var(--card)) !important;
+  box-shadow: 0 10px 30px -10px rgba(124, 58, 237, 0.4) !important;
+}
+
+html.btn-style-square .action-btn,
+html.btn-style-futuristic .action-btn,
+html.search-style-square .search-input,
+html.search-style-futuristic .search-input,
+html.search-style-square .search-header-input,
+html.search-style-futuristic .search-header-input {
+  clip-path: none !important;
+  border-radius: 14px !important;
+}
+
+/* Primary / submit-style buttons (e.g. "Save settings") */
+button.btn-primary,
+.btn-primary,
+.save-btn,
+.primary-btn {
+  background: var(--accent-grad) !important;
+  background-color: rgb(var(--accent)) !important;
+  color: #ffffff !important;
+  border: 1px solid transparent !important;
+  border-radius: var(--btn-radius) !important;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.28) !important;
+  transition: all 0.2s var(--ease-spring) !important;
+}
+
+button.btn-primary:hover,
+.btn-primary:hover,
+.save-btn:hover,
+.primary-btn:hover {
+  filter: brightness(1.08);
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4) !important;
+  transform: translateY(-1px);
+}
+
+html.dark button.btn-primary,
+html.dark .btn-primary,
+html.dark .save-btn,
+html.dark .primary-btn,
+.dark button.btn-primary,
+.dark .btn-primary,
+.dark .save-btn,
+.dark .primary-btn {
+  background: rgb(var(--muted)) !important;
+  color: rgb(var(--accent)) !important;
+  border: 1px solid rgb(var(--border)) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3) !important;
+}
+
+html.dark button.btn-primary:hover,
+html.dark .btn-primary:hover,
+html.dark .save-btn:hover,
+html.dark .primary-btn:hover,
+.dark button.btn-primary:hover,
+.dark .btn-primary:hover,
+.dark .save-btn:hover,
+.dark .primary-btn:hover {
+  background: rgb(var(--card)) !important;
+  border-color: rgb(var(--accent)) !important;
+  box-shadow: 0 4px 18px rgba(124, 58, 237, 0.35) !important;
+}
